@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+
+        <meta charset="UTF-8">
+        <style>
+            #tileset{
+                background-color: white;
+                border: solid 1px black;
+            }
+            #map{
+                border: solid 1px black;
+                
+            }
+            
+        </style>
+        <script src="mapeditor.js"></script>
+    </head>
+    
+    <body>
+        <img id="tileImage" style="display: none;">
+        <h1>Tileset</h1>
+        <canvas id="tileset" onclick="selectTile(event)">
+
+        </canvas> <br>
+        <label for="tilesetImage">Escolher imagem</label> <input id="tilesetImage" type='file' onchange="readURL(this);" >
+        <label for="tileSize">Tamanho: </label> <input min="0" id="tileSize" type="number">
+        <button type="button" onclick="geraTileset()">Gerar Tileset</button>
+        <h1>Mapa</h1>
+        <label for="mapHeight">Altura</label> 
+        <input type="number" min="0" id="mapHeight">
+        <label for="mapWidth">Largura (células)</label> 
+        <input type="number" min="0"  id="mapWidth"> <br>
+        <label for="windowHeight">Altura da janela</label> <input type="number" id="windowHeight">
+        <label for='windowWidth'>Largura da janela</label> <input type="number" id='windowWidth'>
+        <button type="button" onclick="geraMapa()">Gerar mapa (vazio)</button> <br>
+        <canvas id="map" onclick="insereTile(event)">
+
+        </canvas>
+
+
+        <br>
+        <button type="button" id="genJsonButton" onclick="toJSON()">Gerar json :)</button><br>
+        <textarea id="jsonData">
+
+        </textarea>
+    </body>
+
+</html>
