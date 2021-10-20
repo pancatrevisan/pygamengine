@@ -25,5 +25,6 @@ class Peixe(GameObject):
     
     def update(self, dt):
         self.currentAnimation.update(dt)
+        print("inc: " +str(self.velocidade * dt))
         self.position[0] += self.velocidade * dt
         

@@ -1,5 +1,5 @@
 import pygame
-from PeixeBetta import *
+from Peixe import *
 pygame.init()
 tamanhoJanela = [ 800, 600]
 janela = pygame.display.set_mode(tamanhoJanela)
@@ -11,7 +11,7 @@ BRANCO = (255,255,255)
 
 #cria um objeto do jogo.
 
-peixe = PeixeBetta()
+peixe = Peixe()
 
 clock = pygame.time.Clock()
 
