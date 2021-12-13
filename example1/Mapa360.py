@@ -16,7 +16,10 @@ class Mapa360(GameMap):
     
     
     def render(self, dest):
-        dest.blit(self.background, [0,0])
+        #dest.blit(self.background, [0,0])
+        
+        dest.blit(self.background, [self.window[0] * -1,0])
+        dest.blit(self.background, [self.window[0] * -1 + self.background.get_width(),0])
         
 
     def rotate(self, dir):

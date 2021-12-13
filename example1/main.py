@@ -1,7 +1,12 @@
 import pygame
 from Mapa360 import *
 from AlvoMovel import *
+from StaticObject360 import *
+from SFXManager import *
 pygame.init()
+
+
+
 
 
 tamanhoJanela = [ 800, 600]
@@ -19,7 +24,18 @@ cenario.setWindow([0,0,resolucaoInterna[0],resolucaoInterna[1]])
 pistoleiro_1 = AlvoMovel('shootgame/pistoleiro1_normal.png','shootgame/pistoleiro1_acertado.png')
 pistoleiro_1.setMap(cenario)
 
+box_1 = StaticObject360('shootgame/caixa.png')
+box_1.setMap(cenario)
 
+sfx = SFXManager()
+sfx.add('fire',pygame.mixer.Sound('shootgame/shotgun.ogg'))
+
+#checa se o clique acertou algum objeto
+def fire(pos, objs, map):
+    sfx.play('fire')
+    scale = [tamanhoJanela[0]/resolucaoInterna[0], tamanhoJanela[1]/resolucaoInterna[1]]
+    clickToWorld = [(map.window[0]+pos[0])%map.widthPixels, pos[1]-map.heigthPixels,map.heigthPixels]
+    print(clickToWorld)
 sair = False
 #definindo a cor
 BRANCO = (255,255,255)
@@ -44,6 +60,10 @@ while not sair:
                 cenario.rotate('N')
             elif event.key == pygame.K_LEFT or event.key==pygame.K_a:
                 cenario.rotate('N')
+        elif event.type == pygame . MOUSEBUTTONDOWN :
+            if event.button == 1: # esquerdo
+                fire(event.pos, None, cenario)
+            
             
     
     #limpeza
@@ -60,6 +80,7 @@ while not sair:
     #desenho
     cenario.render(telaParaDesenhar)
     pistoleiro_1.render(telaParaDesenhar)
+    box_1.render(telaParaDesenhar)
 
     #redimensiona a tela de desenho para caber na tela.
     redim = pygame.transform.scale(telaParaDesenhar, (tamanhoJanela[0],tamanhoJanela[1]))    

@@ -42,7 +42,22 @@ class GameMap:
         self.window = w
     #recalcula a janela para centralizar na posicao (personagem, etc)
     def centerAt(self, pos):
-        pass
+        
+        self.window[0]= int(pos[0] - self.window[2]/2)
+        self.window[1] = int(pos[1] - self.window[3]/2)
+
+        if(self.window[0]<0):
+            self.window[0] = 0
+        
+        if self.window[1] < 0:
+            self.window[1] = 0
+        
+        if (self.window[0] + self.window[2]) >= self.widthPixels:
+            self.window[0] = self.widthPixels - self.window[2] -1
+
+        if (self.window[1] + self.window[3]) >=self.heigthPixels:
+            self.window[1] = self.heigthPixels - self.window[3] - 1
+
     def moveWindow(self, d):
         self.window[0] += d[0]
         self.window[1] += d[1]

@@ -8,10 +8,10 @@ class PeixeBetta(GameObject):
         #Cria animacao...
         nadaDireita = Animation("nadaDireita")
         nadaDireita.setOwner(self)
-        nadaDireita.addSprite(Sprite('blue_betta/betta_swim_right/1.png',200/1000.0,self, nadaDireita))
-        nadaDireita.addSprite(Sprite('blue_betta/betta_swim_right/2.png',200/1000.0,self, nadaDireita))
-        nadaDireita.addSprite(Sprite('blue_betta/betta_swim_right/3.png',200/1000.0,self, nadaDireita))
-        nadaDireita.addSprite(Sprite('blue_betta/betta_swim_right/4.png',200/1000.0,self, nadaDireita))
+        nadaDireita.addSprite(Sprite('blue_betta/betta_swim_right/1.png',1,self, nadaDireita))
+        nadaDireita.addSprite(Sprite('blue_betta/betta_swim_right/2.png',1,self, nadaDireita))
+        nadaDireita.addSprite(Sprite('blue_betta/betta_swim_right/3.png',1,self, nadaDireita))
+        nadaDireita.addSprite(Sprite('blue_betta/betta_swim_right/4.png',1,self, nadaDireita))
         nadaDireita.addSprite(Sprite('blue_betta/betta_swim_right/5.png',200/1000.0,self, nadaDireita))
         nadaDireita.addSprite(Sprite('blue_betta/betta_swim_right/6.png',200/1000.0,self, nadaDireita))
         nadaDireita.addSprite(Sprite('blue_betta/betta_swim_right/7.png',200/1000.0,self, nadaDireita))
@@ -33,6 +33,7 @@ class PeixeBetta(GameObject):
         self.animations[nadaEsquerda.name] = nadaEsquerda
         self.currentAnimation = nadaDireita
         self.velocidade = 100 #100px/s
+
         self.andaDireita = False
         self.andaEsquerda = False
         self.andaCima = False

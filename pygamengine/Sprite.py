@@ -38,13 +38,15 @@ class Sprite:
     def render(self, dest, onScreenPosition):
         dest.blit(self.image, onScreenPosition)
         rect = self.collisionBox.computeTranslated()
+        print("spr: " +str(rect))
         #print("---------------------------------------------------")
         ##print("world pos: " + str(self.animation.owner.position))
         #print("img world: " +str(self.imageOnWorldPosition()))
         #print("colli box: " + str(rect))
 
-
+        
         rect = self.collisionBox.computeOnScreen()
+        
         #para testes, desenha a caixa de colisao na tela.
         pygame.draw.rect(dest, (255,0,0), rect, 1)
 

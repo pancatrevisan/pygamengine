@@ -24,7 +24,7 @@ class GameObject:
         print(aoColl)
         return myColl.collides(aoColl)
 
-     def checkCollision(self, anotherObject):
+    def checkCollision(self, anotherObject):
         anotherBoxColl = anotherObject.getCurrentCollisionBox().computeTranslated()
         myColl = self.getCurrentCollisionBox().computeTranslated()
         coltype = myColl.collisionType(anotherBoxColl)

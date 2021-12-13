@@ -32,7 +32,7 @@ class PeixeBetta(GameObject):
         self.animations[nadaDireita.name] = nadaDireita
         self.animations[nadaEsquerda.name] = nadaEsquerda
         self.currentAnimation = nadaDireita
-        self.velocidade = 100 #100px/s
+        self.velocidade = 500 #100px/s
         self.andaDireita = False
         self.andaEsquerda = False
         self.andaCima = False

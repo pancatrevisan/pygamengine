@@ -25,8 +25,8 @@ class GameObject360(GameObject):
                 worldToScreen = [int(worldToScreen[0]), worldToScreen[1]]
                 self.currentAnimation.render(dest, worldToScreen)
 
-                Box on Screen não está em coordenada de tela
-                print("colbox: " + str(self.currentAnimation.getCurrentSprite().getCollisionBox().computeOnScreen()))
+                #Box on Screen não está em coordenada de tela
+               # print("colbox: " + str(self.currentAnimation.getCurrentSprite().getCollisionBox().computeOnScreen()))
 
             else:
                 
@@ -40,4 +40,4 @@ class GameObject360(GameObject):
                 #desenha o ponto da posição na tela...
                 posToScreen = [int(self.position[0] - self.map.getWindow()[0]), int(self.map.window[3] - self.position[1])]
                 pygame.draw.circle(dest,(0,0,0),posToScreen,3)
-                print(self.currentAnimation.getCurrentSprite().getCollisionBox().computeOnScreen())
+                #print(self.currentAnimation.getCurrentSprite().getCollisionBox().computeOnScreen())

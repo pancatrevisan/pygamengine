@@ -89,10 +89,11 @@ class CollisionBox:
         #necessario o acesso à janela do mapa...
         w =self.sprite.animation.owner.map.window#[0,0,800,600] #mudar pela do mapa.
         tBox = self.computeTranslated().rect
-        box_h = tBox[3] - tBox[1]
-        box_w = tBox[2] - tBox[0]
+        box_h = self.height
+        box_w = self.width
         onScreenRect = [int(tBox[0]-w[0]), int(w[3] - tBox[1] - box_h),
         int(box_w), int(box_h)]
+        #print("colBox: " +str(onScreenRect))
         return onScreenRect
 
 

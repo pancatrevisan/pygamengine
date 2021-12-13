@@ -51,6 +51,8 @@ while not sair:
     janela.fill(BRANCO)
     #atualização dos estados...
     peixe.update(dt/1000.0)
+    print("update")
+    worm.update(dt/1000.0)
     if peixe.collides(worm):
         worm.alive = False
     #desenho

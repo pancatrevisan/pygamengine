@@ -93,7 +93,7 @@ class CollisionBox:
         box_w = self.width
         onScreenRect = [int(tBox[0]-w[0]), int(w[3] - tBox[1] - box_h),
         int(box_w), int(box_h)]
-        #print("colBox: " +str(onScreenRect))
+        #print("trans colBox: " +str(tBox)+" onscr: " +str(onScreenRect))
         return onScreenRect
 
 

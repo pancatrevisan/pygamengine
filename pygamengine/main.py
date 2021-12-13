@@ -13,7 +13,7 @@ peixe = PeixeBetta()
 peixe.setMap(mapa)
 peixe.position = [100, 100]
 telaParaDesenhar = pygame.Surface((resolucaoInterna[0],resolucaoInterna[1]))
-
+mapa.setWindow([100,0,400,300])
 
 janela = pygame.display.set_mode(tamanhoJanela)
 pygame.display.set_caption("Eventos de Teclado")
@@ -60,6 +60,7 @@ while not sair:
     janela.fill(BRANCO)
     #atualização dos estados...
     peixe.update(dt/1000.0)
+    mapa.centerAt(peixe.position)
     #desenho
     
     

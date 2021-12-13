@@ -32,12 +32,10 @@ while not sair:
     janela.fill(BRANCO)
     #atualização dos estados...
 
-    peixe.checkCollision(worm)
-
+    #print(peixe.checkCollision(worm))
+    #worm.update(dt/1000.0)
     peixe.update(dt/1000.0)
-    #coltype = peixe.checkCollision(worm)
-    #if(coltype['ME']!="NONE" or coltype['OTHER']!='NONE'):
-    #    worm.alive = False
+    
     if peixe.collides(worm):
         worm.alive = False
     #desenho

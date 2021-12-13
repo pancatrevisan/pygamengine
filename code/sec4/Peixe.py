@@ -3,7 +3,7 @@ from Animation import *
 from Sprite import *
 class Peixe(GameObject):
     def __init__(self):
-        GameObject.__init__(self)        
+        GameObject.__init__(self,[0, 150])        
         
         #Cria animacao...
         nadaDireita = Animation("nadaDireita")

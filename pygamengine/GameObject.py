@@ -33,6 +33,7 @@ class GameObject:
         anotherBoxColl = anotherObject.getCurrentCollisionBox().computeTranslated()
         myColl = self.getCurrentCollisionBox().computeTranslated()
         coltype = myColl.collisionType(anotherBoxColl)
+        
         return coltype
     def moveTo(self, pos):
         self.lastMove =[pos[0] - self.position[0], pos[1]-self.position[1]]
@@ -128,13 +129,6 @@ class GameObject:
                     break
 
 
-        
-        
-
-
-
-        
-        
     #método de atualização, para ser sobrescrito em subclasses.
     def update(self, dt):
         raise Exception("Implemente o método de atualização :)")
@@ -142,13 +136,14 @@ class GameObject:
     def render(self, dest):
         if self.currentAnimation != None:
             
-            worldToScreen = [self.position[0] - self.currentAnimation.getCurrentSprite().getAlign()[0], 0]
+            worldToScreen = [self.position[0] - self.currentAnimation.getCurrentSprite().getAlign()[0] - self.map.getWindow()[0], 0]
             worldToScreen[1] = self.position[1]+self.currentAnimation.getCurrentSprite().getHeight()
             worldToScreen[1] = self.map.window[3] - worldToScreen[1]
             worldToScreen = [int(worldToScreen[0]), worldToScreen[1]]
             self.currentAnimation.render(dest, worldToScreen)
 
-            posToScreen = [int(self.position[0]), int(self.map.window[3] - self.position[1])]
+            #desenha o ponto da posição na tela...
+            posToScreen = [int(self.position[0] - self.map.getWindow()[0]), int(self.map.window[3] - self.position[1])]
             pygame.draw.circle(dest,(0,0,0),posToScreen,3)
     def addAnimation(self, animation):
         animation.setOwner(self)

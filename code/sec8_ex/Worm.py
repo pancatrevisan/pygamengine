@@ -17,10 +17,19 @@ class Worm(GameObject):
         self.velocidade = 100 #100px/s
         self.position = [750,0]
         self.alive = True
+        self.tempoRetorno = 2
+        self.tempoEsperando = 0
     
     def update(self, dt):
-        self.currentAnimation.update(dt)
-        self.position[0] += self.velocidade * dt
+        
+        #self.currentAnimation.update(dt)
+        #self.position[0] += self.velocidade * dt
+        if not self.alive:
+            self.tempoEsperando += dt
+            if(self.tempoEsperando >= self.tempoRetorno):
+                self.alive = True
+                self.tempoEsperando = 0
+
     
     def render(self, dest):
         if(self.alive):
